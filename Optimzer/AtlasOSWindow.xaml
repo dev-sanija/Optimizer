@@ -1,0 +1,124 @@
+﻿<Window x:Class="Optimzer.AtlasOSWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Atlas OS Notice"
+        Height="650"
+        Width="950"
+        Background="#0F1115"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- THEME -->
+    <Window.Resources>
+
+        <Style x:Key="AtlasBtn" TargetType="Button">
+            <Setter Property="Background" Value="#2A3140"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="#3A4358"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3A4560"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- CENTER PANEL -->
+        <Border Width="720"
+                Padding="25"
+                Background="#161A22"
+                CornerRadius="16"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <!-- LOGO -->
+                <Button Width="120"
+                        Height="120"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        HorizontalAlignment="Center"
+                        Click="AtlasButton_Click">
+
+                    <!-- FIXED LOCAL FILE PATH -->
+                    <Image Stretch="Uniform"
+                           Source="file:///D:/Optimzer/Optimzer/Resources/Atlas%20OS%20logo.png"/>
+                </Button>
+
+                <!-- TITLE -->
+                <TextBlock Text="Atlas OS Information"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0,15,0,10"/>
+
+                <!-- NOTICE -->
+                <Border Background="#1E2430"
+                        Padding="15"
+                        CornerRadius="10"
+                        Margin="0,10,0,15">
+
+                    <TextBlock TextWrapping="Wrap"
+                               FontSize="13"
+                               Foreground="#D0D3DA"
+                               LineHeight="20"
+                               Text="Atlas OS is a modified Windows environment designed for performance.
+
+Recommended for low-end PCs.
+
+⚠ Limitations:
+- Some Windows features may not work
+- System modifications required
+- Use at your own risk
+
+We strongly recommend a fresh Windows installation before switching.
+
+IMPORTANT:
+- License valid for one Windows installation only
+- After 7 days, fresh install support may be limited
+- Contact developer before reinstalling Windows
+
+You can still use your current OS, but some apps may behave unpredictably."/>
+                </Border>
+
+                <!-- BUTTONS -->
+                <UniformGrid Columns="2">
+
+                    <Button Content="Atlas OS Wizard" Style="{StaticResource AtlasBtn}" Click="OpenAtlasWizard"/>
+                    <Button Content="AEM Tool Download" Style="{StaticResource AtlasBtn}" Click="OpenAEM"/>
+                    <Button Content="Windows 10 Playbook" Style="{StaticResource AtlasBtn}" Click="OpenWin10Guide"/>
+                    <Button Content="Windows 11 Playbook" Style="{StaticResource AtlasBtn}" Click="OpenWin11Guide"/>
+                    <Button Content="Win 10 Boot USB" Style="{StaticResource AtlasBtn}" Click="OpenWin10Boot"/>
+                    <Button Content="Win 11 Boot USB" Style="{StaticResource AtlasBtn}" Click="OpenWin11Boot"/>
+
+                </UniformGrid>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>
